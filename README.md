@@ -4,7 +4,7 @@ _<p align="center">Synthesizers for Dub Techno Chords & Stabs. Includes 8 classi
 
 ---
 
-![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.0.1-brightgreen?style=flat-square)
 ![macOS Support](https://img.shields.io/badge/macOS-Sonoma%20%7C%20Sequoia%20%7C%20Tahoe-000000?style=flat-square&logo=apple&logoColor=white)
 ![Architecture](https://img.shields.io/badge/Architecture-Universal%20Silicon%20%26%20Intel-black?labelColor=606060&style=flat-square&logo=apple&logoColor=white)
 ![Format](https://img.shields.io/badge/Format-Standalone%20%7C%20AU%20%7C%20VST3-00CED1?style=flat-square)
