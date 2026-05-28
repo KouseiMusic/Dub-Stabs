@@ -4,7 +4,7 @@
 
 ---
 
-![Version](https://img.shields.io/badge/Version-1.0.1-brightgreen?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.0.2-brightgreen?style=flat-square)
 ![macOS Support](https://img.shields.io/badge/macOS-Sonoma%20%7C%20Sequoia%20%7C%20Tahoe-000000?style=flat-square&logo=apple&logoColor=white)
 ![Architecture](https://img.shields.io/badge/Architecture-Intel%20%7C%20Arm64%20%7C%20Universal-black?labelColor=606060&style=flat-square&logo=apple&logoColor=white)
 ![Format](https://img.shields.io/badge/Format-Standalone%20%7C%20AU%20%7C%20VST3-00CED1?style=flat-square)
@@ -12,14 +12,14 @@
 
 ---
 
-<img width="1440" height="865" alt="Dub Stabs 1 0 1 preview" src="https://github.com/user-attachments/assets/9d9e7bef-1913-46e0-a88d-af1306f0d7ba" />
+<img width="1195" height="792" alt="dubstabspreview" src="https://github.com/user-attachments/assets/44b8f37c-b921-4d63-9c8a-c231f68a91eb" />
 
 ---
 
 ## 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬
 
 - **Virtual Analog Engine**: High-fidelity oscillators with multiple classic hardware-inspired presets.
-- **Advanced Modulation**: Triple LFO system targeting Filter Cutoff, Pitch, and Amplitude for evolving movement.
+- **Advanced Modulation**: Triple LFO system targeting Filter Cutoff, Pitch and Amplitude for evolving movement.
 - **Geometric Interface**: Minimalistic, dark-themed interface designed for focus and ergonomic studio control.
 - **Classic Hardware Synthesizers**: Juno-106, Prophet VS, DX7, MS-20, Polysix, Alpha Juno-1, Blofeld & ESQ1.
 - **"Sweet Spot" Default Parameters**: Default parameters set for instant Dub Techno.
@@ -40,7 +40,7 @@
 ## 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧
 
 ### 𝐒𝐭𝐚𝐧𝐝𝐚𝐥𝐨𝐧𝐞
-1. Download the latest [`Dub.Stabs.zip`](https://github.com/DeobfuscateMusic/Dub-Stabs/releases/download/Dub_Stabs_1.0.1/Dub.Stabs.zip).
+1. Download the latest [`Dub.Stabs`].
 2. Extract & Drag to your `Applications` folder.
 3. Open `Dub Stabs`.
 
@@ -90,7 +90,7 @@
 | **5** | A#2 | **6** | C#3 | **7** | D#3 | **8** | F#3 |
 | **9** | G#3 | **0** | A#3 | **-** | C#4 | **=** | D#4 |
 | **[** | F#4 | **]** | G#4 | **;** | A#4 | **'** | C#5 |
-| **\\** | D#5 | **⇧** | F#5 | **`** | G#5 | **⌥** | A#5 |
+| **\\** | D#5 | **⇧** | F#5 | **&#96;** | G#5 | **⌥** | A#5 |
 
 ### 𝐒𝐲𝐧𝐭𝐡 𝐏𝐚𝐫𝐚𝐦𝐞𝐭𝐞𝐫𝐬
 
@@ -117,4 +117,4 @@ _This software and plugins are free. Don't forget to give it a ⭐ on Github if 
 ---
 
 <p align="center"><code>𝒦𝑜𝓊𝓈𝑒𝒾</code></p>
-<p align="center">2026</code></p>
+<p align="center"><code>2026</code></p>
