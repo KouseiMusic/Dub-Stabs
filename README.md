@@ -45,7 +45,7 @@ Audio output can be recorded directly in WAV format.
 
 - **macOS**: 14.0 (Sonoma), 15.0 (Sequoia) or 16.0 (Tahoe)
 - **Architecture**: Intel (x64), Apple Silicon (Arm64) or Universal (U2B)
-- **DAW (plugin mode)**: Ableton Live 11 or later, Logic Pro, Reason — with the [BlackHole](https://github.com/ExistentialAudio/BlackHole) virtual audio driver for DAW routing in standalone mode, or via AU / VST3 once the plugin builds are available
+- **DAW (plugin mode)**: Ableton Live 11 or later, Logic Pro, Reason with the [BlackHole](https://github.com/ExistentialAudio/BlackHole) virtual audio driver for DAW routing in standalone mode, or via AU / VST3 once the plugin builds are available
 
 > AU and VST3 plugin formats are currently under development.
 
