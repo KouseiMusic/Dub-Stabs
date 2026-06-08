@@ -57,7 +57,7 @@ Audio output can be recorded directly in WAV format.
 
 1. Download the latest [`Dub Stabs`](https://github.com/KouseiMusic/Dub-Stabs/releases/tag/Dub-Stabs-1.1.0) release for your architecture (Intel, Arm64 or Universal).
 2. Open the DMG and drag `Dub Stabs.app` to your `Applications` folder.
-3. On first launch, right-click the app and choose **Open** to bypass the macOS Gatekeeper prompt (the app is unsigned).
+3. On first launch, right-click the app and choose **Open** to bypass the macOS Gatekeeper prompt.
 
 ### 𝐀𝐮𝐝𝐢𝐨 𝐔𝐧𝐢𝐭 (𝐀𝐔)
 
