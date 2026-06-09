@@ -111,11 +111,19 @@
 ## 𝟎.𝟗.𝟗 (𝟏𝟓-𝟎𝟑-𝟐𝟎𝟐𝟔)
 
 - Dual-oscillator synthesizer engine with two oscillators per voice for rich, thick chords.
+
 - Low-pass filter with Cutoff and Resonance controls for classic sound shaping.
+
 - Decay knob controlling how long each chord sustains before fading out.
+
 - Grit knob for adding subtle detuning warmth or heavier distortion-like textures.
+
 - Space knob for adding echo and depth to the sound.
+
 - Master Volume and Pitch controls.
+
 - Juno-106 and DX7 presets.
+
 - Full computer keyboard playability mapped across two and a half octaves (QWERTY English layout).
+
 - Dark-themed interface with neon accent colours.
