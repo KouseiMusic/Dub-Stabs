@@ -36,7 +36,7 @@
 - **macOS**: 14.0 (Sonoma), 15.0 (Sequoia) or 16.0 (Tahoe)
 - **Architecture**: Intel (x64), Apple Silicon (Arm64) or Universal (U2B)
 - **DAW (plugin mode)**: Ableton Live 12 or 11, Logic Pro, Reason with the [BlackHole](https://github.com/ExistentialAudio/BlackHole) virtual audio driver for DAW routing in standalone mode.
-> AU and VST3 plugin formats are currently under development.
+> Audio Unit (AU) & VST3 plugins formats are currently under development.
 
 ---
 
@@ -156,7 +156,7 @@ Press the `Rec` button in the header to begin capturing audio. Press it again to
 
 **MIDI input**: Connect a MIDI controller before launching. `Dub Stabs` responds to note-on and note-off messages on any channel. Each MIDI note triggers a full chord built on that note using the current Voices and Base Note settings.
 
-**AU / VST3**: Plugin formats are under development. When available they will support full parameter automation and direct DAW audio routing without BlackHole.
+> **Audio Unit (AU) & VST3**: Plugins formats are under development. When available they will support full parameter automation and direct DAW audio routing without BlackHole.
 
 ---
 
