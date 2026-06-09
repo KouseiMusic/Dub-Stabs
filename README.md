@@ -1,6 +1,6 @@
 <p align="center"><img width="320" height="71" alt="dubstabsbanner" src="https://github.com/user-attachments/assets/b7f90e93-898a-4a42-98ae-8ec98a1e8178" /></p>
 
- _<p align="center">Dub Techno Stabs & Chords Synthesizer.</p>_
+ **_<p align="center">Dub Techno Stabs & Chords Synthesizer.</p>_**
 
 ---
 
