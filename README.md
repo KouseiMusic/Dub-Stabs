@@ -35,7 +35,7 @@
 
 - **macOS**: 14.0 (Sonoma), 15.0 (Sequoia) or 16.0 (Tahoe)
 - **Architecture**: Intel (x64), Apple Silicon (Arm64) or Universal (U2B)
-- **DAW (plugin mode)**: Ableton Live 12 or 11, Logic Pro, Reason with the [BlackHole](https://github.com/ExistentialAudio/BlackHole) virtual audio driver for DAW routing in standalone mode.
+- **DAW (Plugin mode)**: Ableton Live 12 or 11, Logic Pro, Reason with the [BlackHole](https://github.com/ExistentialAudio/BlackHole) virtual audio driver for DAW routing in standalone mode.
 > Audio Unit (AU) & VST3 plugins formats are currently under development.
 
 ---
