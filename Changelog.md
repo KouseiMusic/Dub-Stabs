@@ -56,7 +56,7 @@
 
 ---
 
-## 𝟏.𝟎.1 (𝟎𝟓-𝟐𝟎𝟐𝟔)
+## 𝟏.𝟎.𝟏 (𝟎𝟓-𝟐𝟎𝟐𝟔)
 
 - Added multi-language keyboard layout support: French (AZERTY), Russian (ЙЦУКЕН), Japanese (JIS) and Korean (두벌식). Each layout remaps both the on-screen key labels and the computer keyboard bindings to match the physical keyboard of the selected locale.
 
