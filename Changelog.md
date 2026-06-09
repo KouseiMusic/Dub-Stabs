@@ -1,112 +1,121 @@
 # 𝐃𝐮𝐛 𝐒𝐭𝐚𝐛𝐬 - 𝐂𝐡𝐚𝐧𝐠𝐞𝐥𝐨𝐠
 
+---
+
 ## 𝟏.𝟏.𝟎 (𝟎𝟔-𝟐𝟎𝟐𝟔)
 
-### 𝐀𝐮𝐝𝐢𝐨 𝐄𝐧𝐠𝐢𝐧𝐞
+### 𝐒𝐨𝐮𝐧𝐝 & 𝐀𝐮𝐝𝐢𝐨
 
-- Added a DynamicsCompressorNode (Brickwall Limiter) in the master output chain. All audio passes through it before reaching the hardware output, preventing clipping and protecting hearing at any parameter combination.
+- Added a master limiter at the end of the audio chain. It acts as a safety ceiling that prevents any sound from clipping or distorting at the hardware level, regardless of how the knobs are set.
 
-- Fixed a feedback runaway instability in the global delay. The previous feedback formula (0.65 + space * 0.20) could reach 0.85 at high Space values, causing self-oscillation and unbounded volume growth. The formula is now (0.45 + space * 0.20) and is hard-capped at 0.75.
+- Fixed the delay effect causing loud uncontrolled feedback at high Space values. Turning Space up high could previously trigger a runaway resonance that kept growing in volume. It now stays stable at all settings.
 
-- Fixed an LFO depth overflow. LFO 1 was modulating the filter Cutoff frequency with a multiplier of 3000, which at depth = 1 could push the filter to NaN or negative frequency values, causing audio glitches. The multiplier is now 1200 with clamping on both LFOs.
+- Fixed LFO 1 being able to push the filter into an unstable state at high Depth values, causing clicks, silence or audio glitches. The modulation range is now properly bounded.
 
-- Replaced raw white noise with a pink noise approximation (Paul Kellet method). Pink noise rolls off at -3 dB/octave and is spectrally closer to natural acoustic sources, reducing harshness at high Noise values.
+- Improved the Noise layer. It now uses pink noise instead of white noise, which sounds warmer and less harsh, closer to the natural breath and air textures of the original hardware.
 
-- Fixed oscillator grit detuning. The secondary oscillator frequency ratio had no upper bound, which at Grit = 100 produced extreme beating artifacts. The maximum effective spread is now capped at +40 cents.
+- Fixed the Grit knob causing extreme pitch beating at high values. The two oscillators could drift so far apart that the result sounded broken rather than gritty. The spread is now musically controlled.
 
-- Fixed filter resonance scaling. Q was previously (resonance / 5), reaching Q = 20 at maximum resonance, causing self-oscillation of the filter. Q is now clamped to 12 with a non-linear curve that preserves the musically useful range.
+- Fixed the Resonance knob self-oscillating at high values. Turning Resonance fully up could cause the filter to whistle and ring on its own at a very loud level. It now stays under control across the full range.
 
-- Fixed a voice gain stacking issue. With 5 voices all routed to the master bus simultaneously, the summed gain could approach 0.75 before limiting. Voice peak gain is now divided by the active voice count.
+- Fixed all presets playing too quietly. The output level was being divided down too aggressively. All presets now play at a proper, usable volume straight away.
 
-- Added engine destroy() method. The AudioContext is now properly ramped to silence and closed on application quit, eliminating an AudioContext leak and preventing an audible click on exit.
+- Fixed a click sound when closing the application. The audio now fades out cleanly before the engine shuts down.
 
 ### 𝐏𝐫𝐞𝐬𝐞𝐭𝐬
 
-- Rebalanced all eight presets for safe output levels.
-- MS-20: resonance reduced from 65 to 52 (was causing harsh peaks)
-- AlphaJuno-1: chorus reduced from 0.70 to 0.55; resonance from 55 to 48
-- Poly6: chorus reduced from 0.60 to 0.50
-- ESQ-1: noise reduced from 20 to 14
-- All presets: reverb maximum reduced from 0.35 to 0.28; space maximum reduced from 0.25 to 0.20
-- Default voice count adjusted per preset for musical balance.
-- Default chorus on startup reduced from 0.70 to 0.45.
-- Default master volume reduced from 0.50 to 0.42 as a safer initial level.
+- Rebalanced all eight presets. Several presets were too harsh or too loud in certain frequency areas:
 
-### 𝐒𝐭𝐚𝐛𝐢𝐥𝐢𝐭𝐲
+  - MS-20: tamed the filter resonance which was causing sharp piercing peaks.
+  - Alpha Juno-1: reduced the chorus thickness and resonance for a cleaner sound.
+  - Poly6: softened the chorus slightly.
+  - ESQ-1: reduced the noise layer which was overpowering the tone.
+  - All presets: reverb and spatial depth brought down to more natural starting levels.
 
-- Fixed a stale closure bug in the keyboard event handler. The handler was capturing an outdated reference to params, so changing presets mid-session could cause notes to trigger on the wrong base note or with incorrect parameters. A paramsRef is now used to always read the current state.
+- Adjusted the number of voices per preset for a better musical balance out of the box.
 
-- Fixed initEngine recreating a new function reference on every render, which caused the keyboard and audio-init effects to re-register on every state change. initEngine is now stable via useCallback.
+- Reduced the default chorus intensity on startup.
 
-- Fixed a recording AudioContext leak. The temporary decode context used for WAV export was not being closed after use. It is now explicitly closed after decodeAudioData returns.
+### 𝐈𝐧𝐭𝐞𝐫𝐟𝐚𝐜𝐞
 
-- Fixed a recording destination leak. The MediaStream destination node was staying connected to the analyser after recording stopped. It is now disconnected in the onstop handler.
+- Fixed the font not loading when there was no internet connection. The font is now bundled directly inside the application and no longer requires a network connection to appear correctly.
 
-- Fixed the anchor element created for WAV download not being removed from the DOM after click.
+### 𝐑𝐞𝐥𝐢𝐚𝐛𝐢𝐥𝐢𝐭𝐲
+
+- Fixed changing presets mid-session sometimes causing notes to play on the wrong pitch or with the wrong settings. Notes now always use the currently active preset parameters.
+
+- Fixed rapid note triggering occasionally leaving a ghost audio connection open in the background, which could slowly increase CPU usage over a long session.
+
+- Fixed exported WAV files leaving a small amount of memory occupied after the export completed.
 
 ### 𝐒𝐞𝐜𝐮𝐫𝐢𝐭𝐲
 
-- Removed nodeIntegration: true and contextIsolation: false from the BrowserWindow configuration. These settings exposed the Node.js runtime to renderer-process JavaScript, which is a critical Electron security vulnerability. The renderer now runs fully sandboxed.
+- The application now runs in a fully sandboxed environment. A previous configuration was allowing the interface too much access to the underlying system, which represented a security risk. This has been closed.
 
-- Added sandbox: true and webSecurity: true to webPreferences.
-
-- Added a Content-Security-Policy header blocking all external network connections from the renderer (connect-src: none).
-
-- Added a will-navigate handler that prevents the renderer from navigating to any non-file URL.
-
-- Blocked webview element creation and window.open calls to external origins.
+- The application can no longer open external websites or make network requests of any kind from within the interface.
 
 ---
 
-## 𝟏.𝟎.𝟐 (𝟐𝟎𝟐𝟔)
-
+## 𝟏.𝟎.1 (𝟎𝟓-𝟐𝟎𝟐𝟔)
 
 - Added multi-language keyboard layout support: French (AZERTY), Russian (ЙЦУКЕН), Japanese (JIS) and Korean (두벌식). Each layout remaps both the on-screen key labels and the computer keyboard bindings to match the physical keyboard of the selected locale.
 
 - Added WAV recording. A one-click record button captures audio output directly from the engine and exports a timestamped WAV file named with the active preset abbreviation and the current date and time.
 
-- Added seven colour themes selectable from the Options menu: Teal, Pink, Green, Purple, White, Juno-106 (red accent with dark panel), and DX7 (mint green accent).
+- Added seven colour themes selectable from the Options menu: Teal, Pink, Green, Purple, White, Juno-106 (red accent with dark panel) and DX7 (mint green accent).
 
 - Added DX7 slider-style controls when the DX7 theme is active, replacing the standard fader style with membrane data-entry sliders matching the original hardware aesthetic.
 
 - Added Juno-106 fader-style controls when the Juno-106 theme is active, using vertical sliders with white and red stripes matching the original hardware panel layout.
 
-- Added iPlug2 / AU / VST3 parameter bridge. The renderer now communicates with the plugin host via the iPlug2 messaging protocol, enabling parameter automation and MIDI input in supported DAWs.
-
-- Added MIDI note-on and note-off handling via the iPlug2 message bridge, allowing hardware MIDI controllers and DAW piano rolls to trigger chords.
+- Added DAW integration support, allowing hardware MIDI controllers and DAW piano rolls to trigger chords and automate parameters in supported DAWs.
 
 - Extended the chord voicing engine to support 1 to 5 simultaneous voices per chord, controllable from a dedicated Voices knob.
 
 - Added a Voices knob and a Base Note knob with a live note name display below it (e.g. A2, C#3).
 
-- Added a LevelMeter component in the header displaying real-time output amplitude drawn from the AnalyserNode.
+- Added an output level meter in the header showing the real-time volume of the audio signal.
 
 - Added the Options dropdown for language and theme selection.
 
 - Added the Preset dropdown with all eight hardware presets.
 
-- Added five LFO parameters to the control surface: LFO 1 Rate, LFO 1 Depth, LFO 2 Rate, LFO 2 Depth and Chorus.
+- Added five modulation parameters to the control surface: LFO 1 Rate, LFO 1 Depth, LFO 2 Rate, LFO 2 Depth and Chorus.
 
 - Added a 49-key on-screen piano keyboard (C2–C6) with mouse and computer keyboard playability, active-note highlighting and per-key note labels.
 
 ---
 
-## 𝟏.𝟎.𝟏 (𝟐𝟎𝟐𝟔)
+## 𝟏.𝟎.𝟎 (𝟏𝟕-𝟎𝟒-𝟐𝟎𝟐𝟔)
 
 - Added ProphetVS, MS-20, Polysix, Alpha Juno-1, Blofeld and ESQ-1 presets, expanding the preset roster from two to eight.
 
-- Added global reverb with a Schroeder-style parallel comb filter network (four delay lines) and a dedicated Reverb knob.
+- Added a Reverb effect with a dedicated Reverb knob for adding room and space to the sound.
 
-- Added global delay with a feedback loop, a pre-feedback low-pass filter and a dedicated Delay Time knob.
+- Added a delay effect with a feedback loop, a built-in tone filter on the repeats and a dedicated Delay Time knob.
 
-- Added LFO 1 targeting filter Cutoff and LFO 2 targeting oscillator pitch, each with independent Rate and Depth controls.
+- Added LFO 1 targeting the filter for rhythmic movement and LFO 2 targeting the pitch for vibrato, each with independent Rate and Depth controls.
 
-- Added a noise oscillator layer per voice with a dedicated Noise knob.
+- Added a noise layer per voice with a dedicated Noise knob for adding breath, texture and air to the sound.
 
-- Added a filter envelope with a Filter Env knob controlling the initial Cutoff peak.
+- Added a filter envelope with a Filter Env knob that controls how far the filter opens on each note hit before closing back down.
 
-- Added per-preset waveform selection: oscillator types are now set automatically when a preset is loaded.
+- Added per-preset waveform selection: each preset automatically configures the right oscillator shapes when loaded.
 
-- Added natural oscillator drift: each voice applies a small random detune to osc1 and osc2 in opposite directions for subtle analogue warmth.
+- Added natural oscillator drift: each voice has a subtle random tuning variation between its two oscillators, giving a warmer, more analogue character.
 
-- Fixed a voice accumulation issue where rapidly triggering the same MIDI note without a note-off would leave previous voice nodes connected to the output graph indefinitely.
+- Fixed a build-up issue where playing the same note repeatedly very quickly could leave invisible audio voices running in the background.
+
+---
+
+## 𝟎.𝟗.𝟗 (𝟏𝟓-𝟎𝟑-𝟐𝟎𝟐𝟔)
+
+- Dual-oscillator synthesizer engine with two oscillators per voice for rich, thick chords.
+- Low-pass filter with Cutoff and Resonance controls for classic sound shaping.
+- Decay knob controlling how long each chord sustains before fading out.
+- Grit knob for adding subtle detuning warmth or heavier distortion-like textures.
+- Space knob for adding echo and depth to the sound.
+- Master Volume and Pitch controls.
+- Juno-106 and DX7 presets.
+- Full computer keyboard playability mapped across two and a half octaves (QWERTY English layout).
+- Dark-themed interface with neon accent colours.
