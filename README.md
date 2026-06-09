@@ -16,16 +16,6 @@
 
 ---
 
-## 𝐎𝐯𝐞𝐫𝐯𝐢𝐞𝐰
-
-**Dub Stabs** is a synthesizer built for Dub Techno Chords. It runs a dual-oscillator virtual analog engine with per-voice filtering, a global delay, a reverb and two independent LFOs. All eight presets are modelled after specific hardware machines and tuned for immediate use in a dub techno context. The default parameters produce usable chords stabs without adjustment.
-
-The instrument is playable from the on-screen 49-key piano keyboard, from a connected MIDI controller or from the computer keyboard using layout-matched bindings for English, French, Russian, Japanese and Korean.
-
-Audio output can be recorded directly in WAV format.
-
----
-
 ## 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬
 
 - **Virtual Analog Engine**: Dual-oscillator voices with per-voice low-pass filtering, amplitude envelopes and natural oscillator drift for analogue warmth. Chord voicing spans 1 to 5 simultaneous notes per trigger.
@@ -45,7 +35,7 @@ Audio output can be recorded directly in WAV format.
 
 - **macOS**: 14.0 (Sonoma), 15.0 (Sequoia) or 16.0 (Tahoe)
 - **Architecture**: Intel (x64), Apple Silicon (Arm64) or Universal (U2B)
-- **DAW (plugin mode)**: Ableton Live 11 or later, Logic Pro, Reason with the [BlackHole](https://github.com/ExistentialAudio/BlackHole) virtual audio driver for DAW routing in standalone mode.
+- **DAW (plugin mode)**: Ableton Live 12 or 11, Logic Pro, Reason with the [BlackHole](https://github.com/ExistentialAudio/BlackHole) virtual audio driver for DAW routing in standalone mode.
 > AU and VST3 plugin formats are currently under development.
 
 ---
@@ -54,9 +44,9 @@ Audio output can be recorded directly in WAV format.
 
 ### 𝐒𝐭𝐚𝐧𝐝𝐚𝐥𝐨𝐧𝐞
 
-1. Download the latest [`Dub Stabs`](https://github.com/KouseiMusic/Dub-Stabs/releases/tag/Dub-Stabs-1.1.0) release for your architecture (Intel, Arm64 or Universal).
-2. Open the DMG and drag `Dub Stabs.app` to your `Applications` folder.
-3. On first launch, right-click the app and choose **Open** to bypass the macOS Gatekeeper prompt.
+1. Download the latest [`Dub Stabs`](https://github.com/KouseiMusic/Dub-Stabs/releases/tag/Dub-Stabs-1.1.0).
+2. Extract & Drag `Dub Stabs` to your `Applications` folder.
+3. If macOS shows a Gatekeeper warning on first launch, right-click the application and choose `Open`, then confirm.
 
 ### 𝐀𝐮𝐝𝐢𝐨 𝐔𝐧𝐢𝐭 (𝐀𝐔)
 
@@ -148,7 +138,7 @@ Keyboard bindings adapt automatically when a language is selected from the Optio
 | **5** | A#2 | **6** | C#3 | **7** | D#3 | **8** | F#3 |
 | **9** | G#3 | **0** | A#3 | **-** | C#4 | **=** | D#4 |
 | **[** | F#4 | **]** | G#4 | **;** | A#4 | **'** | C#5 |
-| **\\** | D#5 | **⇧** | F#5 | **&#96;** | G#5 | **⌥** | A#5 |
+| **\\** | D#5 | **⇧** | F#5 | G#5 | **⌥** | A#5 |
 
 French (AZERTY), Russian (ЙЦУКЕН), Japanese (JIS) and Korean (두벌식) layouts are available from **Options > Language**. Selecting a language remaps both the on-screen key labels and the computer keyboard bindings to match the physical layout of that locale.
 
@@ -156,15 +146,15 @@ French (AZERTY), Russian (ЙЦУКЕН), Japanese (JIS) and Korean (두벌식) l
 
 ## 𝐑𝐞𝐜𝐨𝐫𝐝𝐢𝐧𝐠
 
-Press the **Rec** button in the header to begin capturing audio. Press it again to stop. A WAV file is exported automatically and named using the active preset abbreviation and the current date and time (e.g. `dubstabs_juno106_260609143022.wav`). Recording captures the full processed signal including delay, reverb and the master limiter.
+Press the `Rec` button in the header to begin capturing audio. Press it again to stop. A `.wav` file is exported automatically and named using the active preset abbreviation and the current date and time (e.g. `dubstabs_juno106_260609143022.wav`). Recording captures the full processed signal including delay, reverb and the master limiter.
 
 ---
 
 ## 𝐃𝐀𝐖 𝐔𝐬𝐚𝐠𝐞
 
-**Standalone + BlackHole**: Install the [BlackHole](https://github.com/ExistentialAudio/BlackHole) virtual audio driver, set Dub Stabs output to BlackHole in macOS Audio MIDI Setup, and route BlackHole as an input track in your DAW. This allows you to record the output in real time or resample it.
+**Standalone + BlackHole**: Install the [`BlackHole`](https://github.com/ExistentialAudio/BlackHole) virtual audio driver, set `Dub Stabs` output to `BlackHole` in macOS `Audio MIDI Setup`, and route `BlackHole` as an input track in your DAW. This allows you to record the output in real time or resample it.
 
-**MIDI input**: Connect a MIDI controller before launching. Dub Stabs responds to note-on and note-off messages on any channel. Each MIDI note triggers a full chord built on that note using the current Voices and Base Note settings.
+**MIDI input**: Connect a MIDI controller before launching. `Dub Stabs` responds to note-on and note-off messages on any channel. Each MIDI note triggers a full chord built on that note using the current Voices and Base Note settings.
 
 **AU / VST3**: Plugin formats are under development. When available they will support full parameter automation and direct DAW audio routing without BlackHole.
 
