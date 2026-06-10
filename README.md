@@ -82,26 +82,26 @@ Each preset configures the oscillator waveform pair, filter starting point, reso
 | Parameter | Range | Description |
 | :--- | :--- | :--- |
 | **Pitch** | -24 to +24 st | Master semitone transpose applied to all oscillators. |
-| **Cutoff** | 20 Hz – 10 kHz | Low-pass filter cutoff frequency. |
-| **Reso** | 0 – 100% | Filter resonance (Q). Higher values accentuate the cutoff frequency. Self-oscillation is prevented by an internal Q ceiling. |
-| **Grit** | 0 – 100 | Oscillator frequency spread between the two oscillators. Low values add warmth; high values produce beating and distortion-like textures. |
-| **Decay** | 10 – 5000 ms | Length of both the amplitude and filter envelopes. Controls how long a triggered chord sustains. |
-| **Env** | 0 – 100% | Filter envelope depth. Controls how far above the Cutoff setting the filter opens at the moment of each trigger before decaying back. |
-| **Noise** | 0 – 100 | Level of a pink noise layer blended into each voice. Adds breath and air, or textural roughness at higher values. |
-| **Space** | 0 – 1 | Delay wet level and feedback depth together. Increasing Space adds echo repeats and widening. |
-| **Reverb** | 0 – 1 | Wet level of the parallel comb reverb. |
-| **Delay Time** | 0.01 – 2 s | Time between delay repeats. Set to rhythmic subdivisions of your tempo for musical results. |
-| **Chorus** | 0 – 1 | Chorus depth, affecting the width and movement of the stereo image. |
-| **Voices** | 1 – 5 | Number of notes in each triggered chord. The intervals are fixed (minor seventh, dominant ninth shape) and transpose with the Base Note and Pitch settings. |
+| **Cutoff** | 20 Hz - 10 kHz | Low-pass filter cutoff frequency. |
+| **Reso** | 0 - 100% | Filter resonance (Q). Higher values accentuate the cutoff frequency. Self-oscillation is prevented by an internal Q ceiling. |
+| **Grit** | 0 - 100 | Oscillator frequency spread between the two oscillators. Low values add warmth; high values produce beating and distortion-like textures. |
+| **Decay** | 10 - 5000 ms | Length of both the amplitude and filter envelopes. Controls how long a triggered chord sustains. |
+| **Env** | 0 - 100% | Filter envelope depth. Controls how far above the Cutoff setting the filter opens at the moment of each trigger before decaying back. |
+| **Noise** | 0 - 100 | Level of a pink noise layer blended into each voice. Adds breath and air or textural roughness at higher values. |
+| **Space** | 0 - 1 | Delay wet level and feedback depth together. Increasing Space adds echo repeats and widening. |
+| **Reverb** | 0 - 1 | Wet level of the parallel comb reverb. |
+| **Delay Time** | 0.01 - 2 s | Time between delay repeats. Set to rhythmic subdivisions of your tempo for musical results. |
+| **Chorus** | 0 - 1 | Chorus depth, affecting the width and movement of the stereo image. |
+| **Voices** | 1 - 5 | Number of notes in each triggered chord. The intervals are fixed (minor seventh, dominant ninth shape) and transpose with the Base Note and Pitch settings. |
 
 ### 𝐌𝐨𝐝𝐮𝐥𝐚𝐭𝐢𝐨𝐧 (𝐋𝐅𝐎𝐬)
 
 | Parameter | Range | Description |
 | :--- | :--- | :--- |
-| **LFO 1 Rate** | 0.1 – 20 Hz | Speed of LFO 1. Below ~1 Hz produces slow filter sweeps; above 10 Hz enters audio-rate FM territory. |
-| **LFO 1 Depth** | 0 – 1 | Amount of filter cutoff modulation from LFO 1. At full depth the filter sweeps across a wide range of the frequency spectrum on each cycle. |
-| **LFO 2 Rate** | 0.1 – 20 Hz | Speed of LFO 2. |
-| **LFO 2 Depth** | 0 – 1 | Amount of pitch modulation from LFO 2. At low depths this produces vibrato; at higher depths, wide pitch sweeps. |
+| **LFO 1 Rate** | 0.1 - 20 Hz | Speed of LFO 1. Below ~1 Hz produces slow filter sweeps; above 10 Hz enters audio-rate FM territory. |
+| **LFO 1 Depth** | 0 - 1 | Amount of filter cutoff modulation from LFO 1. At full depth the filter sweeps across a wide range of the frequency spectrum on each cycle. |
+| **LFO 2 Rate** | 0.1 - 20 Hz | Speed of LFO 2. |
+| **LFO 2 Depth** | 0 - 1 | Amount of pitch modulation from LFO 2. At low depths this produces vibrato; at higher depths, wide pitch sweeps. |
 
 ### 𝐁𝐚𝐬𝐞 𝐍𝐨𝐭𝐞 & 𝐕𝐨𝐢𝐜𝐢𝐧𝐠
 
