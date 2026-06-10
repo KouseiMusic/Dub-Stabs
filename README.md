@@ -56,6 +56,15 @@
 
 > 𝐔𝐧𝐝𝐞𝐫 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐦𝐞𝐧𝐭
 
+## 𝐃𝐀𝐖 𝐔𝐬𝐚𝐠𝐞
+
+1. Install [`BlackHole`](https://github.com/ExistentialAudio/BlackHole), a free virtual audio driver for macOS.
+2. Open `Audio MIDI Setup` (found in `/Applications/Utilities/`).
+3. Create a `Multi-Output Device` that includes both your `Audio Interface` and `BlackHole`.
+4. Set the `Multi-Output Device` as the system output in `System Settings` > `Sound`.
+5. In your `DAW`, create an `Audio Input Track` and set its input source to `BlackHole`.
+6. You can now record or monitor `Dub Stabs`'s output in real time.
+
 ---
 
 ## 𝐏𝐫𝐞𝐬𝐞𝐭𝐬
@@ -147,16 +156,6 @@ French (AZERTY), Russian (ЙЦУКЕН), Japanese (JIS) and Korean (두벌식) l
 ## 𝐑𝐞𝐜𝐨𝐫𝐝𝐢𝐧𝐠
 
 Press the `Rec` button in the header to begin capturing audio. Press it again to stop. A `.wav` file is exported automatically and named using the active preset abbreviation and the current date and time (e.g. `dubstabs_juno106_260609143022.wav`). Recording captures the full processed signal including delay, reverb and the master limiter.
-
----
-
-## 𝐃𝐀𝐖 𝐔𝐬𝐚𝐠𝐞
-
-**Standalone + BlackHole**: Install the [`BlackHole`](https://github.com/ExistentialAudio/BlackHole) virtual audio driver, set `Dub Stabs` output to `BlackHole` in macOS `Audio MIDI Setup`, and route `BlackHole` as an input track in your DAW. This allows you to record the output in real time or resample it.
-
-**MIDI input**: Connect a MIDI controller before launching. `Dub Stabs` responds to note-on and note-off messages on any channel. Each MIDI note triggers a full chord built on that note using the current Voices and Base Note settings.
-
-> **Audio Unit (AU) & VST3**: Plugins formats are under development. When available they will support full parameter automation and direct DAW audio routing without BlackHole.
 
 ---
 
