@@ -44,7 +44,7 @@
 
 ### 𝐒𝐭𝐚𝐧𝐝𝐚𝐥𝐨𝐧𝐞
 
-1. Download the latest [`Dub Stabs`](https://github.com/KouseiMusic/Dub-Stabs/releases/tag/Dub-Stabs-1.1.0).
+1. Download the latest [`Dub Stabs`](https://github.com/KouseiMusic/Dub-Stabs/releases/download/Dub_Stabs_1.1.0/Dub.Stabs.macOS.Universal.zip).
 2. Extract & Drag `Dub Stabs` to your `Applications` folder.
 3. If macOS shows a Gatekeeper warning on first launch, right-click the application and choose `Open`, then confirm.
 
